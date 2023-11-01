@@ -1,0 +1,159 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "EDA",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "compile_indexing::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-compile_indexing-Debug-60ba140ef6399fca1792.json",
+					"name" : "compile_indexing",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "compile_interface::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-compile_interface-Debug-95073ddef439569542ee.json",
+					"name" : "compile_interface",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "compile_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-compile_test-Debug-b7cd7a7e593645372d4a.json",
+					"name" : "compile_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "indexing::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-indexing-Debug-0c35dcc6fc54694acf97.json",
+					"name" : "indexing",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "interface::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-interface-Debug-3e453c7306eec3757011.json",
+					"name" : "interface",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "run_indexing::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-run_indexing-Debug-6866424f829ade9024f8.json",
+					"name" : "run_indexing",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "run_interface::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-run_interface-Debug-97bea3b798b8a37f2b84.json",
+					"name" : "run_interface",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "run_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-run_test-Debug-4b43273cbca6b9fb546e.json",
+					"name" : "run_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ss_tree_indexing::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ss_tree_indexing-Debug-166931ab58a1400968c3.json",
+					"name" : "ss_tree_indexing",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ss_tree_interface::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ss_tree_interface-Debug-dbaebe4e6cb1e7e78345.json",
+					"name" : "ss_tree_interface",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ss_tree_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ss_tree_test-Debug-3a978a5ce0ca20ae980e.json",
+					"name" : "ss_tree_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test-Debug-a3bcae5e679027a50356.json",
+					"name" : "test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/enzoc/CLionProjects/EDA (copia)/cmake-build-debug",
+		"source" : "/home/enzoc/CLionProjects/EDA (copia)"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
