@@ -586,7 +586,6 @@ void SsNode::DFirst(const Point &center, size_t k, std::priority_queue<std::pair
         }
     }
 
-    // Agregar los paths de esta parte del árbol a 'paths'
     while (!result.empty()) {
         paths.push_back(result.top().second);
         result.pop();

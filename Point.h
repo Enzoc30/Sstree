@@ -210,16 +210,11 @@ inline std::pair<Point, NType> findSmallestEnclosingBall(const std::vector<Point
     Point center = points[0];
     NType radius = 0;
 
-    // Itera a través de los puntos para ajustar el círculo
     for (const Point& point : points) {
         NType distanceToCenter = distance(center, point);
 
         if (distanceToCenter <= radius) {
-            // Punto ya está dentro o en la frontera del círculo
             continue;
-        }
-
-        // Ajusta el círculo para incluir el nuevo punto
         NType newRadius = (radius + distanceToCenter) / 2;
         NType scaleFactor = (newRadius - radius) / distanceToCenter;
         center = center + (point - center) * scaleFactor;
