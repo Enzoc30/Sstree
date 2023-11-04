@@ -32,12 +32,10 @@ void encontrarVecinos(const SsNode* nodo, const Point& x, std::vector<std::pair<
     }
 }
 
-// Función para encontrar y ordenar los vecinos más cercanos
 std::vector<Point> encontrarYOrdenarVecinos(const SsNode* raiz, const Point& x, int k) {
     std::vector<std::pair<NType , Point>> vecinos;
     encontrarVecinos(raiz, x, vecinos);
 
-    // Ordenar vecinos por distancia de menor a mayor
     std::sort(vecinos.begin(), vecinos.end(),
               [](const std::pair<NType , Point>& a, const std::pair<NType , Point>& b) {
                   return a.first < b.first;
