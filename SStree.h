@@ -56,7 +56,7 @@ private:
     size_t minVarianceSplit( const std::vector<NType>& values ,size_t coordinateIndex);
 public:
     virtual ~SsNode() = default;
-    void DFirst(const Point &center, size_t k, std::priority_queue<std::pair<NType, std::string>, std::vector<std::pair<NType, std::string>>, CompareSafe> &result, NType& maxi, std::vector<std::string>& paths);
+//    void DFirst(const Point &center, size_t k, std::priority_queue<std::pair<NType, std::string>, std::vector<std::pair<NType, std::string>>, CompareSafe> &result, NType& maxi, std::vector<std::string>& paths);
 
     Point centroid;
     NType radius;
@@ -78,11 +78,12 @@ public:
     virtual std::pair<SsNode*,SsNode*> insert(const Point& point) = 0;
     virtual std::pair<SsNode*,SsNode*> insert(const Point& point, std::string path) = 0;
 
-    bool test(bool isRoot = false) const;
+    bool test(bool isRoot = true) const;
     void print(size_t indent = 0) const;
 
     virtual void FNDFTrav(const Point& q, size_t k, std::priority_queue<Pair, std::vector<Pair>, Comparator>& L, NType& Dk) const = 0;
 
+    void DFirst(const Point& center, size_t k, std::vector<std::pair<NType , Point>>& result,NType& maxi)  ;
 
 
     virtual void saveToStream(std::ostream &out) const = 0;
@@ -213,7 +214,7 @@ public:
     void insert(const Point& point);
     void insert(const Point& point, const std::string& path);
     void build (const std::vector<Point>& points);
-    std::vector<std::string> kNNQuery(const Point& center, size_t k) ;
+    std::vector<Point> kNNQuery(const Point& center, size_t k) ;
 
     void print() const;
     bool test() const;
