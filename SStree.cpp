@@ -477,7 +477,7 @@ void SsTree::saveToFile(const std::string &filename) const {
     // Guardar si el root es hija o nodo interno
     bool isLeaf = root->isLeaf();
     out.write(reinterpret_cast<const char*>(&isLeaf), sizeof(isLeaf));
-    std::cout << root->radius << std::endl;
+    //std::cout << root->radius << std::endl;
     // Guardar el resto de la estructura
     root->saveToStream(out);
     out.close();
@@ -563,43 +563,49 @@ void SsTree::insert(const Point &point) {
     }
 }
 
-void SsNode::DFirst(const Point &center, size_t k, std::priority_queue<std::pair<NType, std::string>, std::vector<std::pair<NType, std::string>>, CompareSafe> &result, NType& maxi, std::vector<std::string>& paths)  {
-    if (isLeaf()) {
+
+void SsNode::DFirst(const Point &center, size_t k, std::vector<std::pair<NType, Point>> &result , NType& maxi)  {
+    if(isLeaf()){
         const SsLeaf* temp = dynamic_cast<const SsLeaf*>(this);
-        for (size_t i = 0; i < temp->points.size(); ++i) {
-            NType pointDist = distance(center, temp->points[i]);
-            if (pointDist <= maxi) {
-                result.emplace(pointDist, temp->paths[i]);
+        for(auto& item : temp->points){
+            //std::cout << item << " ";
+            NType pointDist = distance(center, item);
+            if(pointDist <= maxi) {
+                auto insertPos = std::upper_bound(result.begin(), result.end(), std::make_pair(pointDist, item),
+                                                  [](const std::pair<NType, Point> &a,
+                                                     const std::pair<NType, Point> &b) {
+                                                      return a.first < b.first;
+                                                  });
+                result.insert(insertPos, std::make_pair(pointDist, item));
                 if (result.size() > k) {
-                    result.pop();
-                    maxi = result.top().first;
+                    result.pop_back();
+                    maxi = result.back().first ;
                 }
             }
         }
-    } else {
+
+    }else{
         const SsInnerNode* iiii = dynamic_cast<const SsInnerNode*>(this);
         for (auto& child : iiii->children) {
             NType childDist = distance(center, child->centroid);
             if (childDist <= maxi + child->radius) {
-                child->DFirst(center, k, result, maxi, paths);
+                child->DFirst(center, k, result, maxi);
             }
         }
     }
 
-    while (!result.empty()) {
-        paths.push_back(result.top().second);
-        result.pop();
-    }
 }
 
 
-
-std::vector<std::string> SsTree::kNNQuery(const Point &center, size_t k)  {
-    std::vector<std::string> result;
-
-    std::priority_queue<std::pair<NType, std::string>, std::vector<std::pair<NType, std::string>>, CompareSafe> knnResult;
+std::vector<Point> SsTree::kNNQuery(const Point& center, size_t k)  {
+    std::vector<Point> result;
+    std::vector<std::pair<NType ,Point>> knnResult;
     NType maxi = this->root->radius;
-    root->DFirst(center, k, knnResult, maxi, result);
+    root->DFirst(center, k, knnResult, maxi);
+
+    for(const auto& pair : knnResult) {
+        result.push_back(pair.second);
+    }
 
     return result;
 }
